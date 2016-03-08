@@ -1,0 +1,25 @@
+Ingredient Object
+  char* name
+  
+Ingredient Database
+  vector<Ingredient i>
+  void importData(char* textFileName)
+  accept Search(ingVisitor &v
+  
+Visitor
+  virtual visit();
+  
+Cabinet
+  vector <Ingredient i>
+  void addIng(char* ingredient)
+  void visitIngredients(Ingredient i)
+  void removeIng(char* ingredient)
+  void clearIngs();
+
+Class Teams
+  Mixology Application
+    Rajack & Brad
+  Ingreient DB & Ingredient Object
+    Curtis & Jacob
+  Cabinet & Visitor
+    Cam, Ryan & Sean
