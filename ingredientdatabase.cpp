@@ -15,7 +15,7 @@ IngredientDatabase::IngredientDatabase(QWidget *parent) :
     //Call populateDB() to read file and populate databse
 }
 
-IngredientDatabase::populateDB(string filename)
+void IngredientDatabase::populateDB(string filename)
 {
     string line;
     ifstream myfile;
@@ -25,7 +25,7 @@ IngredientDatabase::populateDB(string filename)
       {
         while ( getline (myfile,line) )
         {
-          cout << line << '\n';
+			ingredientList.push_back(ingredient(line));
         }
         myfile.close();
       }
