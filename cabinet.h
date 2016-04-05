@@ -15,5 +15,6 @@ public:
 	void visitIngredients(ingredient i);
 	void removeIng(string ingredient);
 	void clearIngs();
+	bool searchDatabase(string ingredient);
 
 };
