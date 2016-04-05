@@ -1,0 +1,21 @@
+Cocktail Database
+vector <cocktail>
+void importDB (string fileName)
+bool searchDB (string cocktailName)
+
+Cocktail Class
+string cocktailName
+recipe cocktailRecipe
+void printCocktailName()
+void printCocktailRecipe()
+
+Recipe
+vector <ingedient> recipe
+void printRecipe()
+void addIngredient(ingredient ingredientName, int quantity)
+
+Ingredient
+int quantity
+ingredient(string nameInput, int quantityInput)
+ingredient(string nameInput)
+	quantity = 0;
