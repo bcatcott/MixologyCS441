@@ -30,7 +30,7 @@ bool cabinet::searchDatabase(string ingredient)
 	
 	for (int i=0; i < size; i++)
 	{
-		if (ingredientList[i] == ingrediant)
+		if (ingredientList[i] == ingrediant) //this won't work, it's checking if an ingredient is equal to a string
 		{
 			return false;
 		}
