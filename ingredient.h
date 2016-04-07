@@ -1,5 +1,4 @@
-#ifndef INGREDIENT_H
-#define INGREDIENT_H
+#pragma once
 
 #include <string>
 
@@ -12,13 +11,12 @@ private:
 	int quantity;
 
 public:
-	ingredient(string inputName);
+	ingredient(const string &inputName);
 	ingredient(string inputName, int inputQuantity);
 	~ingredient();
 	bool operator==(const ingredient &obj);
 	string getName();
-	int getQuantity();
+	int getQuantity() const;
 	void updateQuantity(int amt);
 };
 
-#endif
