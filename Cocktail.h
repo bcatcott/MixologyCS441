@@ -1,3 +1,4 @@
+#pragma once
 #include <string>
 #include <vector>
 #include "Ingredient.h"
@@ -6,7 +7,7 @@ using namespace std;
 
 class Cocktail
 {
-  private:
+  public:
   
     string cocktailName;
     vector <Ingredient> recipe;
