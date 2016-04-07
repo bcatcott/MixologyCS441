@@ -1,40 +1,58 @@
-#include <iostream>
 #include <string>
 #include <vector>
+#include <iostream>
 #include "cabinet.h"
 
 using namespace std;
 
-void cabinet::addIng(string ingredient) {
-	if (searchDatabase(ingredient)  == true)
+cabinet::cabinet()
+{
+}
+
+cabinet::~cabinet()
+{
+}
+
+void cabinet::addIng(ingredient ing)
+{
+	bool updateFlag = false; //whether or not to update qty or add new ing
+	for(size_t i = 0; i < ingredientList.size(); i++)
 	{
-		ingredientList.push_back(ingredient);
+		if(ingredientList[i].getName() == ing.getName()) //if the vector already has ing, just update qty
+		{
+			ingredientList[i].updateQuantity(ing.getQuantity());
+			updateFlag = true;
+			break;
+		}
+	}
+	if(updateFlag == false)
+		ingredientList.push_back(ing);
+}
+
+void cabinet::visitIngredients(ingredient ing)
+{
+	
+}
+
+void cabinet::removeIng(ingredient ing)
+{
+	for(vector<ingredient>::iterator iter = ingredientList.begin(); iter != ingredientList.end(); ++iter) //iterates through ingredientList to find matching ingredient to erase
+	{
+		if(*iter == ing)
+		{
+			ingredientList.erase(iter);
+			break;
+		}
 	}
 }
 
-void cabinet::visitIngredients(ingredient i) {
-
-}
-
-void cabinet::removeIng(string ingredient) {
-
-}
-
-void cabinet::clearIngs() {
+void cabinet::clearIngs()
+{
 	ingredientList.clear();
 }
 
-bool cabinet::searchDatabase(string ingredient)
+void cabinet::displayCab()
 {
-	int size = ingredientList.size();
-	
-	for (int i=0; i < size; i++)
-	{
-		if (ingredientList[i] == ingrediant) //this won't work, it's checking if an ingredient is equal to a string
-		{
-			return false;
-		}
-	}
-	
-	return true;
+	for(size_t i = 0; i < ingredientList.size(); i++)
+		cout << ingredientList[i].getName() << " " << ingredientList[i].getQuantity() << endl;
 }
