@@ -1,20 +1,21 @@
-#include <iostream>
 #include <string>
 #include <vector>
 #include "ingredient.h"
 
-
 using namespace std;
 
-class cabinet {
+class cabinet
+{
 private:
 	vector<ingredient> ingredientList;
 
 public:
-	void addIng(string ingredient);
-	void visitIngredients(ingredient i);
-	void removeIng(string ingredient);
+	cabinet();
+	~cabinet();
+	void addIng(ingredient ing);
+	void visitIngredients(ingredient ing);
+	void removeIng(ingredient ing);
 	void clearIngs();
-	bool searchDatabase(string ingredient);
+	void displayCab();
 
 };
