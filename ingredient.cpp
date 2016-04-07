@@ -1,25 +1,25 @@
 #include <string>
-#include "ingredient.h"
+#include "Ingredient.h"
 
 using namespace std;
 
-ingredient::ingredient(string inputName)
+Ingredient::Ingredient(const string &inputName)
 {
 	name = inputName;
 	quantity = 1;
 }
 
-ingredient::ingredient(string inputName, int inputQuantity)
+Ingredient::Ingredient(string inputName, int inputQuantity)
 {
 	name = inputName;
 	quantity = inputQuantity;
 }
 
-ingredient::~ingredient()
+Ingredient::~Ingredient()
 {
 }
 
-bool ingredient::operator==(const ingredient &obj)
+bool Ingredient::operator==(const Ingredient &obj)
 {
 	if(name == obj.name)
 		return true;
@@ -27,17 +27,17 @@ bool ingredient::operator==(const ingredient &obj)
 		return false;
 }
 
-string ingredient::getName()
+string Ingredient::getName()
 {
 	return name;
 }
 
-int ingredient::getQuantity()
+int Ingredient::getQuantity()const
 {
 	return quantity;
 }
 
-void ingredient::updateQuantity(int amt)
+void Ingredient::updateQuantity(int amt)
 {
 	quantity += amt;
 }

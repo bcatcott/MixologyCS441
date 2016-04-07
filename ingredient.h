@@ -4,17 +4,17 @@
 
 using namespace std;
 
-class ingredient
+class Ingredient
 {
 private:
 	string name;
 	int quantity;
 
 public:
-	ingredient(const string &inputName);
-	ingredient(string inputName, int inputQuantity);
-	~ingredient();
-	bool operator==(const ingredient &obj);
+	Ingredient(const string &inputName);
+	Ingredient(string inputName, int inputQuantity);
+	~Ingredient();
+	bool operator==(const Ingredient &obj);
 	string getName();
 	int getQuantity() const;
 	void updateQuantity(int amt);

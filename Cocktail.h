@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include "ingredient.h"
+#include "Ingredient.h"
 
 using namespace std;
 
@@ -9,7 +9,7 @@ class Cocktail
   private:
   
     string cocktailName;
-    vector <ingredient> recipe;
+    vector <Ingredient> recipe;
     
   
   public:

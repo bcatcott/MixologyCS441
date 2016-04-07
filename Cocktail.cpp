@@ -1,5 +1,6 @@
 #include <string>
 #include <vector>
+#include <iostream>
 #include "Cocktail.h"
 
 using namespace std;
@@ -8,7 +9,7 @@ using namespace std;
   {
   }
   
-  Cocktail::~Cocktail();
+  Cocktail::~Cocktail()
   {
   }
   
