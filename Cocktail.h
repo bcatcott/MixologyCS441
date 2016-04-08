@@ -20,5 +20,6 @@ class Cocktail
     void printCocktailName();
     void printCocktailRecipe();
     void printRecipe();
+    void addIngCocktail();
 
 };
