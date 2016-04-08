@@ -15,18 +15,20 @@ using namespace std;
   {
   }
   
-  string Cocktail::printCocktailName()
+  void Cocktail::printCocktailName()
   {
-    return cocktailName;
+    cout << cocktailName;
   }
   
   void printCocktailRecipe()
   {
+  	cout << cocktailName << ":" << endl;
+  	for (i = 0; i < recipe.size(); i++ )
+  	{
+  		cout << recipe[i].getName() << " " << recipe[i].getQuantity() << endl;
+  	}
   }
   
-  void printRecipe()
-  {
-  }
   
   void addIngCocktail(ingredient ing)
   {
