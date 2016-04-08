@@ -13,7 +13,7 @@ private:
 
 public:
 	Ingredient(const string &inputName);
-	Ingredient(string inputName, int inputQuantity);
+	Ingredient(const string &inputName, int inputQuantity);
 	~Ingredient();
 	bool operator==(const Ingredient &obj);
 	string getName() const;
