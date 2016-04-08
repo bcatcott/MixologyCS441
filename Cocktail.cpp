@@ -5,17 +5,19 @@
 
 using namespace std;
 
-  Cocktail::Cocktail()
+  Cocktail::Cocktail(string inputCocktail, Ingrediant cocktailRecipe)
   {
+    cocktailName = inputcocktail;
+    recipe = cocktailRecipe;
   }
   
   Cocktail::~Cocktail()
   {
   }
   
-  void Cocktail::printCocktailName()
+  string Cocktail::printCocktailName()
   {
-    cout << cocktailName;
+    return cocktailName;
   }
   
   void printCocktailRecipe()
@@ -24,4 +26,20 @@ using namespace std;
   
   void printRecipe()
   {
+  }
+  
+  void addIngCocktail(ingredient ing)
+  {
+    	  bool updateFlag = false; //whether or not to update qty or add new ing
+	  for(int i = 0; i < recipe.size(); i++)
+	  {
+		  if(recipe[i].getName() == ing.getName()) //if the vector already has ing, just update qty
+		  {
+			  recipe[i].updateQuantity(ing.getQuantity());
+			  updateFlag = true;
+			  break;
+		  }
+	  }
+	  if(updateFlag == false)
+		  recipe.push_back(ing);
   }
