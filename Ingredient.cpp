@@ -10,7 +10,7 @@ Ingredient::Ingredient(const string &inputName)
 	quantity = 1;
 }
 
-Ingredient::Ingredient(string inputName, int inputQuantity)
+Ingredient::Ingredient(const string &inputName, int inputQuantity)
 {
 	name = inputName;
 	quantity = inputQuantity;
