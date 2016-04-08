@@ -5,43 +5,46 @@
 
 using namespace std;
 
-  Cocktail::Cocktail(string inputCocktail, Ingrediant cocktailRecipe)
-  {
-    cocktailName = inputcocktail;
-    recipe = cocktailRecipe;
-  }
+Cocktail::Cocktail()
+{
+}
+
+ Cocktail::Cocktail(string inputCocktail)
+{
+	cocktailName = inputCocktail;
+}
   
-  Cocktail::~Cocktail()
-  {
-  }
+Cocktail::~Cocktail()
+{
+}
   
-  void Cocktail::printCocktailName()
-  {
-    cout << cocktailName;
-  }
+void Cocktail::printCocktailName()
+{
+	cout << cocktailName << endl;
+}
   
-  void printCocktailRecipe()
-  {
-  	cout << cocktailName << ":" << endl;
-  	for (i = 0; i < recipe.size(); i++ )
+void Cocktail::printCocktailRecipe()
+{
+	cout << cocktailName << ":" << endl;
+	for (int i = 0; i < recipe.size(); i++ )
   	{
-  		cout << recipe[i].getName() << " " << recipe[i].getQuantity() << endl;
+		cout << recipe[i].getName() << " " << recipe[i].getQuantity() << endl;
   	}
-  }
+}
   
   
-  void addIngCocktail(ingredient ing)
-  {
-    	  bool updateFlag = false; //whether or not to update qty or add new ing
-	  for(int i = 0; i < recipe.size(); i++)
-	  {
-		  if(recipe[i].getName() == ing.getName()) //if the vector already has ing, just update qty
-		  {
-			  recipe[i].updateQuantity(ing.getQuantity());
-			  updateFlag = true;
-			  break;
-		  }
-	  }
-	  if(updateFlag == false)
-		  recipe.push_back(ing);
-  }
+void Cocktail::addIngCocktail(Ingredient ing)
+{
+	bool updateFlag = false; //whether or not to update qty or add new ing
+	for(int i = 0; i < recipe.size(); i++)
+	{
+		if(recipe[i].getName() == ing.getName()) //if the vector already has ing, just update qty
+		{
+			recipe[i].updateQuantity(ing.getQuantity());
+			updateFlag = true;
+			break;
+		}
+	}
+	if(updateFlag == false)
+		recipe.push_back(ing);
+}
