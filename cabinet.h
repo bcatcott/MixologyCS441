@@ -7,14 +7,14 @@ using namespace std;
 class cabinet
 {
 private:
-	vector<ingredient> ingredientList;
+	vector<Ingredient> ingredientList;
 
 public:
 	cabinet();
 	~cabinet();
-	void addIng(ingredient ing);
-	void visitIngredients(ingredient ing);
-	void removeIng(ingredient ing);
+	void addIng(Ingredient ing);
+	void visitIngredients(Ingredient ing);
+	void removeIng(Ingredient ing);
 	void clearIngs();
 	void displayCab();
 

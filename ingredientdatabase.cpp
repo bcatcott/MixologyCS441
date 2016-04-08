@@ -25,7 +25,7 @@ void IngredientDatabase::populateDB(string filename)
       {
         while ( getline (myfile,line) )
         {
-			ingredientList.push_back(ingredient(line));
+			ingredientList.push_back(Ingredient(line));
         }
         myfile.close();
       }

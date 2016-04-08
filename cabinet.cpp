@@ -13,30 +13,27 @@ cabinet::~cabinet()
 {
 }
 
-void cabinet::addIng(ingredient ing)
+void cabinet::addIng(Ingredient ing)
 {
-	bool updateFlag = false; //whether or not to update qty or add new ing
-	for(size_t i = 0; i < ingredientList.size(); i++)
+	string tempName = ing.getName();
+	for (int i = 0; i < tempName.size(); i++)
 	{
-		if(ingredientList[i].getName() == ing.getName()) //if the vector already has ing, just update qty
-		{
-			ingredientList[i].updateQuantity(ing.getQuantity());
-			updateFlag = true;
-			break;
-		}
+		if (tempName[i] == ' ')
+			tempName[i] = '_';
+		else
+			tempName[i] = tolower(tempName[i]);
 	}
-	if(updateFlag == false)
-		ingredientList.push_back(ing);
+	ingredientList.push_back(tempName);
 }
 
-void cabinet::visitIngredients(ingredient ing)
+void cabinet::visitIngredients(Ingredient ing)
 {
 	
 }
 
-void cabinet::removeIng(ingredient ing)
+void cabinet::removeIng(Ingredient ing)
 {
-	for(vector<ingredient>::iterator iter = ingredientList.begin(); iter != ingredientList.end(); ++iter) //iterates through ingredientList to find matching ingredient to erase
+	for(vector<Ingredient>::iterator iter = ingredientList.begin(); iter != ingredientList.end(); ++iter) //iterates through ingredientList to find matching ingredient to erase
 	{
 		if(*iter == ing)
 		{
@@ -53,6 +50,9 @@ void cabinet::clearIngs()
 
 void cabinet::displayCab()
 {
-	for(size_t i = 0; i < ingredientList.size(); i++)
-		cout << ingredientList[i].getName() << " " << ingredientList[i].getQuantity() << endl;
+	for (size_t i = 0; i < ingredientList.size(); i++)
+	{
+		ingredientList[i].displayIngredient();
+		cout << endl;
+	}		
 }

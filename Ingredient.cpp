@@ -1,4 +1,5 @@
 #include <string>
+#include <iostream>
 #include "Ingredient.h"
 
 using namespace std;
@@ -21,13 +22,22 @@ Ingredient::~Ingredient()
 
 bool Ingredient::operator==(const Ingredient &obj)
 {
-	if(name == obj.name)
+	string tempName = obj.name;
+	for (int i = 0; i < tempName.size(); i++)
+	{
+		if (tempName[i] == ' ')
+			tempName[i] = '_';
+		else
+			tempName[i] = tolower(tempName[i]);
+	}
+
+	if(name == tempName)
 		return true;
 	else
 		return false;
 }
 
-string Ingredient::getName()
+string Ingredient::getName() const
 {
 	return name;
 }
@@ -40,4 +50,14 @@ int Ingredient::getQuantity()const
 void Ingredient::updateQuantity(int amt)
 {
 	quantity += amt;
+}
+
+void Ingredient::displayIngredient() 
+{
+	cout << name;
+}
+
+void Ingredient::displayQuantity()
+{
+	cout << quantity;
 }

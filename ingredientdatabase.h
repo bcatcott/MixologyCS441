@@ -11,7 +11,7 @@ namespace Ui {
 
 class IngredientDatabase : public QMainWindow
 {
-    Q_OBJECT
+	Q_OBJECT
 
 public:
     explicit IngredientDatabase(QWidget *parent = 0);
@@ -20,7 +20,7 @@ public:
 
 private:
     Ui::IngredientDatabase *ui;
-	vector<ingredient> ingredientList;
+	vector<Ingredient> ingredientList;
 };
 
 #endif // INGREDIENTDATABASE_H

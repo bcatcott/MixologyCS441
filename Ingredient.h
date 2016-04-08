@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -15,8 +16,10 @@ public:
 	Ingredient(string inputName, int inputQuantity);
 	~Ingredient();
 	bool operator==(const Ingredient &obj);
-	string getName();
+	string getName() const;
 	int getQuantity() const;
 	void updateQuantity(int amt);
+	void displayIngredient();
+	void displayQuantity();
 };
 
