@@ -7,44 +7,67 @@
 //
 
 #include <fstream>
+#include <array>
 #include <string>
+#include <cctype>
 #include <iostream>
 #include "Cocktail.h"
 #include "CocktailDB.h"
 using namespace std;
 const int MAX=20;
+int quantCount=0;
 
+void CocktailDB::display()
+{
+    for (int i =0; i<dataBase.size();i++)
+    {
+        cout<<"CockTail "<<i+1<<endl;
+        dataBase[i].printCocktailRecipe();
+        cout<< endl;
+    }
+}
 
 void CocktailDB::addCocktail(string newCocktailIngredients)
 {
     string newWords [MAX];
+    int quantity;
+    string temp;
     int counter=0;
-    string tempString;
+    Cocktail ck;
+  //  string tempString;
     
     for (int i =0;i<newCocktailIngredients.length();i++)//appending string 'sentence' into a string array of 'words
     {
+
         if (newCocktailIngredients[i]==' ')
         {
             counter++;
-            tempString = newWords[counter];
+        }
+        else if (isDigit(newCocktailIngredients[i]))
+        {
+            temp = newCocktailIngredients[i];
+            quantity = atoi (temp.c_str());
+            Ingredient newIngred(newWords[counter-1], quantity);
+            ck.addIngCocktail(newIngred);
+            
         }
         else
             newWords[counter]+=newCocktailIngredients[i];
         
     }
-    int i =1;
-    Cocktail ck;
-    ck.cocktailName = newWords [0];
-    cout<<ck.cocktailName<<endl;
-    while (newWords[i]!="")
-    {
-        cout <<"     "<<newWords[i]<<endl;
-        i++;
-        cout<<newWords[i]<<"    PART"<<endl;
-        i++;
-    }
-    cout<<endl;
     
+    ck.cocktailName = newWords[0];
+    dataBase.push_back(ck);
+    
+    
+}
+
+bool CocktailDB::isDigit(char digit)
+{
+    if (digit<='9' && digit>='0')
+        return true;
+    else
+       return false;
 }
 
 void CocktailDB::processFile(string fileName)

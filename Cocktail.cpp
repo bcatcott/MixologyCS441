@@ -7,6 +7,7 @@ using namespace std;
 
 Cocktail::Cocktail()
 {
+    string cocktailName ="";
 }
 
  Cocktail::Cocktail(string inputCocktail)
