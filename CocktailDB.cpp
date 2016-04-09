@@ -15,7 +15,6 @@
 #include "CocktailDB.h"
 using namespace std;
 const int MAX=20;
-int quantCount=0;
 
 void CocktailDB::display()
 {
