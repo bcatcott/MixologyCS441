@@ -22,7 +22,7 @@ public:
 public:
     
     void processFile (string fileName);
-    void addCocktail (string appendedString);
+    void addCocktail (string newCocktail);
     void display();
       
     

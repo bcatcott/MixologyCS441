@@ -32,11 +32,18 @@ void CocktailDB::addCocktail(string newCocktailIngredients)
             newWords[counter]+=newCocktailIngredients[i];
         
     }
+    int i =1;
     Cocktail ck;
     ck.cocktailName = newWords [0];
     cout<<ck.cocktailName<<endl;
-
-    
+    while (newWords[i]!="")
+    {
+        cout <<"     "<<newWords[i]<<endl;
+        i++;
+        cout<<newWords[i]<<"    PART"<<endl;
+        i++;
+    }
+    cout<<endl;
     
 }
 
