@@ -9,7 +9,7 @@ class Cocktail
 {
 public:
 	string cocktailName;
-	vector<Ingredient> recipe;
+	vector <Ingredient> recipe;
 
 public:
 	Cocktail();

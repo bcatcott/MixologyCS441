@@ -21,8 +21,9 @@ public:
     
 public:
     
-    void processFile (string fileName);
+    void processFile (const string fileName);
     void display();
+    void exportDatabase ();
 
       
     
