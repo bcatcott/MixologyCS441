@@ -7,14 +7,11 @@
 //
 
 #include <fstream>
-#include <array>
 #include <string>
-#include <cctype>
 #include <iostream>
 #include "Cocktail.h"
 #include "CocktailDB.h"
 using namespace std;
-const int MAX=20;
 
 void CocktailDB::display()
 {
@@ -26,65 +23,31 @@ void CocktailDB::display()
     }
 }
 
-void CocktailDB::addCocktail(string newCocktailIngredients)
-{
-    string newWords [MAX];
-    int quantity;
-    string temp;
-    int counter=0;
-    Cocktail ck;
-  //  string tempString;
-    
-    for (int i =0;i<newCocktailIngredients.length();i++)//appending string 'sentence' into a string array of 'words
-    {
 
-        if (newCocktailIngredients[i]==' ')
-        {
-            counter++;
-        }
-        else if (isDigit(newCocktailIngredients[i]))
-        {
-            temp = newCocktailIngredients[i];
-            quantity = atoi (temp.c_str());
-            Ingredient newIngred(newWords[counter-1], quantity);
-            ck.addIngCocktail(newIngred);
-            
-        }
-        else
-            newWords[counter]+=newCocktailIngredients[i];
-        
-    }
-    
-    ck.cocktailName = newWords[0];
-    dataBase.push_back(ck);
-    
-    
-}
-
-bool CocktailDB::isDigit(char digit)
-{
-    if (digit<='9' && digit>='0')
-        return true;
-    else
-       return false;
-}
 
 void CocktailDB::processFile(string fileName)
 {
     
     ifstream fin;
     fin.open(fileName);
-    string tempCocktail;
+    string nameOfCocktail; string ingName;
+    int quantity = 0;
+    int numOfIng = 0;
 
-    if (fin)
+    while (fin >> nameOfCocktail)
     {
-    
-    while (getline(fin,tempCocktail))
-        addCocktail(tempCocktail);
-           
+    Cocktail ck(nameOfCocktail);
+    fin >> numOfIng;
+    for (int i =0;i<numOfIng;i++)
+    {
+        fin >> ingName;
+        fin >> quantity;
+        Ingredient newIngredient(ingName, quantity);
+        ck.addIngCocktail(newIngredient);
     }
-    else
-        cout<<"error, bad file."<<endl;
+        dataBase.push_back(ck);
+    }
+
     fin.close();
     
 }
@@ -92,59 +55,6 @@ void CocktailDB::processFile(string fileName)
 
 
 
-/*
-void CocktailDB::importDB(string fileName)
-{
-    ifstream fin;
-    fin.open(fileName);
-    string name;
-    string mixer; //place holder for both alc and non alc ingredients
-    int quantity;
-    char cmd;
-    
-    while (fin>>cmd)
-    {
-        if (cmd == 'N')
-        {
-            Cocktail newCk;
-            fin>>name;
-            newCk.ckName = name;
-            fin>>cmd;
-            if (cmd == 'M')
-            {
-                fin>>mixer;
-                newCk.vMixer.push_back(mixer);
-                //cout<< ck.vMixer[0]<<endl;    //ECHO
-                fin>>cmd;
-            }
-            else if (cmd == 'Q')
-            {
-                fin>>quantity;
-                cout<<quantity; //ECHO
-                newCk.vQuantity.push_back(quantity);
-                //cout<<ck.vQuantity[0];
-                fin>>cmd;
-            }
-            dataBase.push_back(newCk);
-        }
-    }
-    
-}
-// Recursive function to search the stack for the specified cocktail
-bool CocktailDB::searchDB (string name)
-{
-    if(dataBase.empty())
-        return false;
-    if(dataBase.top().cocktailName == name)
-        return true;
-    if(dataBase.top().cocktailName != name)
-        return false;
-    else
-        Cocktail temp = dataBase.pop();
-        bool retVal =  searchDB(name);
-        dataBase.push(temp);
-        return retVal;
-}
-*/
+
 
 

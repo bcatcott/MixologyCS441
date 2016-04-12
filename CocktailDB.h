@@ -22,9 +22,8 @@ public:
 public:
     
     void processFile (string fileName);
-    void addCocktail (string newCocktail);
     void display();
-    bool isDigit (char digit);
+
       
     
 };
