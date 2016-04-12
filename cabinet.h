@@ -8,9 +8,12 @@ class cabinet
 {
 private:
 	vector<Ingredient> ingredientList;
+	cabinet(); //Private because of singleton
+	static bool _instance; //Singleton Variable
+
 
 public:
-	cabinet();
+	static cabinet Instance(); //Must be called to create cabinet
 	~cabinet();
 	void addIng(Ingredient ing);
 	void visitIngredients(Ingredient ing);

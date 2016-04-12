@@ -16,22 +16,19 @@ cabinet::~cabinet()
 void cabinet::addIng(Ingredient ing)
 {
 	string tempName = ing.getName();
-	for (int i = 0; i < (tempName.size() - 1); i++)
+	for (int i = 0; i < tempName.size(); i++)
 	{
 		if (tempName[i] == ' ')
 			tempName[i] = '_';
 		else
 			tempName[i] = tolower(tempName[i]);
 	}
-
-
-
-	ingredientList.push_back(ing);
+	ingredientList.push_back(tempName);
 }
 
 void cabinet::visitIngredients(Ingredient ing)
 {
-	
+	_instance = 0; //Resets singleton code
 }
 
 void cabinet::removeIng(Ingredient ing)
@@ -53,12 +50,27 @@ void cabinet::clearIngs()
 
 void cabinet::displayCab()
 {
-	if (ingredientList.size() > 0)
-	for (size_t i = 0; i < (ingredientList.size() - 1); i++)
+	for (size_t i = 0; i < ingredientList.size(); i++)
 	{
 		ingredientList[i].displayIngredient();
 		cout << endl;
+	}		
+}
+
+bool cabinet::_instance = 0; //Singleton Code
+
+
+cabinet cabinet::Instance() //Singleton Code
+{
+	if (_instance == 0)
+	{
+		_instance = 1;
+		return cabinet();
 	}
 	else
-		cout << "No Ingredients" << endl;
+	{
+		cout << "Error: can only have one instance of Singleton" << endl;
+		exit(0);
+	}
 }
+

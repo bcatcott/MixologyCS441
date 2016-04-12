@@ -36,5 +36,31 @@ void IngredientDatabase::populateDB(string filename)
 
 IngredientDatabase::~IngredientDatabase()
 {
+	_instance = 0; //resets singleton code
     delete ui;
 }
+
+IngredientDatabase::~IngredientDatabase()
+{
+	_instance = 0;
+	delete ui;
+}
+
+
+bool IngredientDatabase::_instance = 0; //Singleton Code
+
+
+IngredientDatabase IngredientDatabase::Instance(QWidget *parent = 0) //Singleton code (I do not know if it is nessisary to have the QWidget *parent = 0 here or just at the declaration for the constructor)
+{
+	if (_instance == 0)
+	{
+		_instance = 1;
+		return IngredientDatabase(QWidget *parent = 0);
+	}
+	else
+	{
+		cout << "Error: can only have one instance of ingredientdatabase" << endl;
+		exit(0);
+	}
+}
+
