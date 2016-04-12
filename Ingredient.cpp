@@ -23,7 +23,7 @@ Ingredient::~Ingredient()
 bool Ingredient::operator==(const Ingredient &obj)
 {
 	string tempName = obj.name;
-	for (int i = 0; i < tempName.size(); i++)
+	for (int i = 0; i < (tempName.size() - 1); i++)
 	{
 		if (tempName[i] == ' ')
 			tempName[i] = '_';
@@ -54,7 +54,13 @@ void Ingredient::updateQuantity(int amt)
 
 void Ingredient::displayIngredient() 
 {
-	cout << name;
+	string tempName = name;
+	for (int i = 0; i < (tempName.size()); i++)
+	{
+		if (tempName[i] == '_')
+			tempName[i] = ' ';
+	}
+	cout << tempName;
 }
 
 void Ingredient::displayQuantity()

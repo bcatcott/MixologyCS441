@@ -1,0 +1,10 @@
+rum
+vodka
+tequila
+whiskey
+coke
+7_up
+orange_juice
+coffee
+lime
+lemon
