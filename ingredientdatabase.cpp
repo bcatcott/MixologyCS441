@@ -36,12 +36,6 @@ void IngredientDatabase::populateDB(string filename)
 
 IngredientDatabase::~IngredientDatabase()
 {
-	_instance = 0; //resets singleton code
-    delete ui;
-}
-
-IngredientDatabase::~IngredientDatabase()
-{
 	_instance = 0;
 	delete ui;
 }

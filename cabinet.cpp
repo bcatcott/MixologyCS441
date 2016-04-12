@@ -11,6 +11,7 @@ cabinet::cabinet()
 
 cabinet::~cabinet()
 {
+    _instance = 0; //Resets singleton code
 }
 
 void cabinet::addIng(Ingredient ing)
@@ -28,7 +29,7 @@ void cabinet::addIng(Ingredient ing)
 
 void cabinet::visitIngredients(Ingredient ing)
 {
-	_instance = 0; //Resets singleton code
+
 }
 
 void cabinet::removeIng(Ingredient ing)
