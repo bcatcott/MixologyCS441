@@ -130,6 +130,21 @@ void CocktailDB::importDB(string fileName)
     }
     
 }
+// Recursive function to search the stack for the specified cocktail
+bool CocktailDB::searchDB (string name)
+{
+    if(dataBase.empty())
+        return false;
+    if(dataBase.top().cocktailName == name)
+        return true;
+    if(dataBase.top().cocktailName != name)
+        return false;
+    else
+        Cocktail temp = dataBase.pop();
+        bool retVal =  searchDB(name);
+        dataBase.push(temp);
+        return retVal;
+}
 */
 
 
