@@ -13,6 +13,15 @@
 #include "CocktailDB.h"
 using namespace std;
 
+CocktailDB::CocktailDB()
+{
+}
+
+CocktailDB::~CocktailDB()
+{
+	_instance = 0; //Resets singleton code
+}
+
 void CocktailDB::exportDatabase()
 {
     ofstream fout;
@@ -72,9 +81,19 @@ void CocktailDB::processFile(const string fileName)
     
 }
 
+CocktailDB* CocktailDB::_instance = 0; //Singleton Code
 
 
-
-
-
-
+CocktailDB* CocktailDB::Instance() //Singleton Code
+{
+	if (_instance == 0)
+	{
+		_instance = new CocktailDB();
+		return _instance;
+	}
+	else
+	{
+		cout << "Error: can only have one instance of CocktailDB" << endl;
+		exit(0);
+	}
+}
