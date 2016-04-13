@@ -42,9 +42,19 @@ string Ingredient::getName() const
 	return name;
 }
 
+void Ingredient::setName(string inputName)
+{
+	name = inputName;
+}
+
 int Ingredient::getQuantity()const
 {
 	return quantity;
+}
+
+void Ingredient::setQuantity(int inputQuantity)
+{
+	quantity = inputQuantity;
 }
 
 void Ingredient::updateQuantity(int amt)
