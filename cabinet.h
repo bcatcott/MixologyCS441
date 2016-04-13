@@ -1,24 +1,25 @@
 #include <string>
 #include <vector>
-#include "ingredient.h"
+#include "Ingredient.h"
+#include "IngredientDatabase.h"
 
 using namespace std;
 
-class cabinet
+class Cabinet: public IngredientDatabase
 {
 private:
 	vector<Ingredient> ingredientList;
-	cabinet(); //Private because of singleton
-	static bool _instance; //Singleton Variable
+	static Cabinet* _instance; //Singleton Variable
 
+protected:
+	Cabinet(); //Protected because of singleton
 
 public:
-	static cabinet Instance(); //Must be called to create cabinet
-	~cabinet();
+	static Cabinet* Instance(); //Must be called to create instance
+	~Cabinet();
 	void addIng(Ingredient ing);
 	void visitIngredients(Ingredient ing);
 	void removeIng(Ingredient ing);
 	void clearIngs();
 	void displayCab();
-
 };
