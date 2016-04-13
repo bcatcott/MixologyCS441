@@ -17,9 +17,10 @@ public:
 	~Ingredient();
 	bool operator==(const Ingredient &obj);
 	string getName() const;
+	void setName(string inputName);
+	void setQuantity(int inputQuantity);
 	int getQuantity() const;
 	void updateQuantity(int amt);
 	void displayIngredient();
 	void displayQuantity();
 };
-
