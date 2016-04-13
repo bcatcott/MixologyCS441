@@ -1,28 +1,21 @@
-#ifndef INGREDIENTDATABASE_H
-#define INGREDIENTDATABASE_H
+#pragma once
 
-#include <QMainWindow>
+#include <string>
 #include <vector>
-#include "ingredient.h"
+#include "Ingredient.h"
 
-namespace Ui {
-	class IngredientDatabase;
-}
-
-class IngredientDatabase : public QMainWindow
+class IngredientDatabase
 {
-	Q_OBJECT
+private:
+	static IngredientDatabase* _instance; //Singleton Variable
+
+protected:
+	vector<Ingredient> ingredientDBList; //so cabinet can use
+	IngredientDatabase(); //Protected because of singleton
 
 public:
-	static IngredientDatabase Instance(QWidget *parent = 0); //Must be called to create IngredientDatabase
+	static IngredientDatabase* Instance(); //Must be called to create instance
     ~IngredientDatabase();
 	void populateDB(string filename);
-	
-private:
-	static bool _instance; //Singleton Variable
-	explicit IngredientDatabase(QWidget *parent = 0); //Private because of Singleton
-    Ui::IngredientDatabase *ui;
-	vector<Ingredient> ingredientList;
+	void displayDB();
 };
-
-#endif // INGREDIENTDATABASE_H
