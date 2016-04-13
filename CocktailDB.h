@@ -1,3 +1,4 @@
+
 //
 //  CocktailDB.hpp
 //  MixCS351
@@ -11,22 +12,22 @@
 #include <vector>
 #include "Ingredient.h"
 #include "Cocktail.h"
-using namespace std;
 
+using namespace std;
 
 class CocktailDB
 {
-public:
+private:
     vector <Cocktail> dataBase;
+	static CocktailDB* _instance; //Singleton Variable
+
+protected:
+	CocktailDB(); //Protected because of singleton
     
 public:
-    
+	static CocktailDB* Instance(); //Must be called to create instance
+	~CocktailDB();
     void processFile (const string fileName);
     void display();
     void exportDatabase ();
-
-      
-    
 };
-
-
