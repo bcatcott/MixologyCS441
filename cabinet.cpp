@@ -35,7 +35,7 @@ void Cabinet::addIng(Ingredient ing)
 			break;
 		}
 	}
-	if(pushFlag = false)
+	if(pushFlag == false)
 		cout << "Ingredient not found in database" << endl;
 }
 
