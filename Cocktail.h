@@ -10,6 +10,8 @@ class Cocktail
 public:
 	string cocktailName;
 	vector <Ingredient> recipe;
+	float rating;
+	vector <string> comment;
 
 public:
 	Cocktail();
@@ -18,4 +20,6 @@ public:
   void printCocktailName();
   void printCocktailRecipe();
   void addIngCocktail(Ingredient ing);
+  void scaleRecipe(int scale);
+  void addCocktail();
 };
