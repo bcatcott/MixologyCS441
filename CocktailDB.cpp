@@ -97,3 +97,19 @@ CocktailDB* CocktailDB::Instance() //Singleton Code
 		exit(0);
 	}
 }
+
+Cocktail* CocktailDB::findCocktail(String name)
+{
+	std::vector<Cocktail>::iterator it;
+
+	for(it = dataBase.begin(); it != dataBase.end(); ++it)
+	{
+		if((*it).cocktailName == name)
+		{
+			return it;
+		}
+	}
+	
+	return NULL;
+}
+
