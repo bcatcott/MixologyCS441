@@ -8,14 +8,15 @@ class IngredientDatabase
 {
 private:
 	static IngredientDatabase* _instance; //Singleton Variable
+	vector<Ingredient> ingredientDBList;
 
 protected:
-	vector<Ingredient> ingredientDBList; //so cabinet can use
 	IngredientDatabase(); //Protected because of singleton
 
 public:
 	static IngredientDatabase* Instance(); //Must be called to create instance
     ~IngredientDatabase();
 	void populateDB(string filename);
+	bool compareDB(Ingredient ing); //returns true if ing is in vector
 	void displayDB();
 };
