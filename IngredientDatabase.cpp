@@ -4,16 +4,6 @@
 #include <string>
 using namespace std;
 
-/*IngredientDatabase::IngredientDatabase() :
-    QMainWindow(parent),
-    ui(new Ui::IngredientDatabase)
-{
-    ui->setupUi(this);
-
-    //Create linked-list called IngredientDB
-    //Call populateDB() to read file and populate databse
-}*/
-
 IngredientDatabase::IngredientDatabase()
 {
 }
@@ -35,6 +25,16 @@ void IngredientDatabase::populateDB(string filename)
 
       else cout << "Unable to open file";
     myfile.close();
+}
+
+bool IngredientDatabase::compareDB(Ingredient ing)
+{
+	for(size_t i = 0; i < ingredientDBList.size(); i++)
+	{
+		if(ing == ingredientDBList[i])
+			return true;
+	}
+	return false;
 }
 
 void IngredientDatabase::displayDB()
