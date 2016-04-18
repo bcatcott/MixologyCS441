@@ -14,34 +14,27 @@ Cabinet::~Cabinet()
     _instance = 0; //Resets singleton code
 }
 
-void Cabinet::addIng(Ingredient ing)
+void Cabinet::addIng(Ingredient ing, IngredientDatabase ingDB)
 {
-	bool pushFlag = false; //checks if an ingredient was pushed onto ingredientList
-	for(size_t j = 0; j < ingredientDBList.size(); j++)
+	if(ingDB.compareDB(ing) == true) //checks to see if ing is in database, then allowed to add to cabinet
 	{
-		if(ing == ingredientDBList[j]) //compares ingredient trying to add with all ingredients in database
+		string tempName = ing.getName();
+		for (int i = 0; i < tempName.size(); i++)
 		{
-			string tempName = ing.getName();
-			for (int i = 0; i < tempName.size(); i++)
-			{
-				if (tempName[i] == ' ')
-					tempName[i] = '_';
-				else
-					tempName[i] = tolower(tempName[i]);
-			}
-			ing.setName(tempName);
-			ingredientList.push_back(ing);
-			pushFlag = true;
-			break;
+			if (tempName[i] == ' ')
+				tempName[i] = '_';
+			else
+				tempName[i] = tolower(tempName[i]);
 		}
+		ing.setName(tempName);
+		ingredientList.push_back(ing);
 	}
-	if(pushFlag == false)
+	else
 		cout << "Ingredient not found in database" << endl;
 }
 
 void Cabinet::visitIngredients(Ingredient ing)
 {
-
 }
 
 void Cabinet::removeIng(Ingredient ing)
@@ -54,6 +47,7 @@ void Cabinet::removeIng(Ingredient ing)
 			break;
 		}
 	}
+	cout << "Ingredient not found in cabinet" << endl;
 }
 
 void Cabinet::clearIngs()
