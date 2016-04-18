@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class Cabinet: public IngredientDatabase
+class Cabinet
 {
 private:
 	vector<Ingredient> ingredientList;
@@ -17,7 +17,7 @@ protected:
 public:
 	static Cabinet* Instance(); //Must be called to create instance
 	~Cabinet();
-	void addIng(Ingredient ing);
+	void addIng(Ingredient ing, IngredientDatabase ingDB); //must pass ingredient and database ingredient is from
 	void visitIngredients(Ingredient ing);
 	void removeIng(Ingredient ing);
 	void clearIngs();
