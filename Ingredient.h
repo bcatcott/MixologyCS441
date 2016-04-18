@@ -1,22 +1,27 @@
 #pragma once
 
 #include <string>
-#include <vector>
-#include "Ingredient.h"
+#include <iostream>
 
-class IngredientDatabase
+using namespace std;
+
+class Ingredient
 {
 private:
-	static IngredientDatabase* _instance; //Singleton Variable
-	vector<Ingredient> ingredientDBList;
-
-protected:
-	IngredientDatabase(); //Protected because of singleton
+	string name;
+	int quantity;
 
 public:
-	static IngredientDatabase* Instance(); //Must be called to create instance
-    ~IngredientDatabase();
-	void populateDB(string filename);
-	bool compareDB(Ingredient ing); //returns true if ing is in vector
-	void displayDB();
+	Ingredient(const string &inputName);
+	Ingredient(const string &inputName, int inputQuantity);
+	~Ingredient();
+	bool operator==(const Ingredient &obj);
+	string getName() const;
+	void setName(string inputName);
+	void setQuantity(int inputQuantity);
+	int getQuantity() const;
+	void updateQuantity(int amt);
+	void displayIngredient();
+	void displayQuantity();
 };
+
