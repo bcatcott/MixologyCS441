@@ -23,5 +23,6 @@ public:
 	void updateQuantity(int amt);
 	void displayIngredient();
 	void displayQuantity();
+	void FormatIng();
 };
 

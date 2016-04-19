@@ -29,7 +29,7 @@ void IngredientDatabase::populateDB(string filename)
 
 bool IngredientDatabase::compareDB(Ingredient ing)
 {
-	for(size_t i = 0; i < ingredientDBList.size(); i++)
+	for(size_t i = 0; i < ingredientDBList.size() - 1; i++)
 	{
 		if(ing == ingredientDBList[i])
 			return true;

@@ -22,18 +22,7 @@ Ingredient::~Ingredient()
 
 bool Ingredient::operator==(const Ingredient &obj)
 {
-	string tempName = obj.name;
-	/*for (int i = 0; i < (tempName.size() - 1); i++)
-	{
-		if (tempName[i] == ' ')
-			tempName[i] = '_';
-		else
-			tempName[i] = tolower(tempName[i]);
-	}*/
-	//why is all of this in here? this operator is only meant to compare names of ingredients
-	//i left it in here, but it does not work with unit test 2
-
-	if(name == tempName)
+	if(name == obj.name)
 		return true;
 	else
 		return false;
@@ -80,3 +69,12 @@ void Ingredient::displayQuantity()
 	cout << quantity;
 }
 
+void Ingredient::FormatIng() {
+	for (int i = 0; i < (name.size() - 1); i++)
+	{
+	if (name[i] == ' ')
+		name[i] = '_';
+	else
+		name[i] = tolower(name[i]);
+	}
+}

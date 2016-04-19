@@ -39,15 +39,18 @@ void Cabinet::visitIngredients(Ingredient ing)
 
 void Cabinet::removeIng(Ingredient ing)
 {
+	int removed = 0;
 	for(vector<Ingredient>::iterator iter = ingredientList.begin(); iter != ingredientList.end(); ++iter) //iterates through ingredientList to find matching ingredient to erase
 	{
 		if(*iter == ing)
 		{
 			ingredientList.erase(iter);
+			removed = 1;
 			break;
 		}
 	}
-	cout << "Ingredient not found in cabinet" << endl;
+	if (removed == 0)
+		cout << "Ingredient not found in cabinet" << endl;
 }
 
 void Cabinet::clearIngs()
@@ -57,11 +60,17 @@ void Cabinet::clearIngs()
 
 void Cabinet::displayCab()
 {
-	for (size_t i = 0; i < ingredientList.size(); i++)
+	if (ingredientList.size() == 0)
+		cout << "Empty" << endl;
+	else 
 	{
-		ingredientList[i].displayIngredient();
-		cout << endl;
-	}		
+		for (size_t i = 0; i < ingredientList.size(); i++)
+		{
+			ingredientList[i].displayIngredient();
+			cout << endl;
+		}
+	}
+	cout << endl;
 }
 
 Cabinet* Cabinet::_instance = 0; //Singleton Code
