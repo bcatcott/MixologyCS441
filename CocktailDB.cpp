@@ -113,3 +113,10 @@ Cocktail* CocktailDB::findCocktail(String name)
 	return NULL;
 }
 
+void CocktailDB::imFeelingLucky()
+{
+	int random = rand() % dataBase.size();
+	database[random].printCocktailRecipe();
+	cout << endl;
+}
+
