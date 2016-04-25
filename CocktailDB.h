@@ -30,4 +30,5 @@ public:
     void processFile (const string fileName);
     void display();
     void exportDatabase ();
+    void imFeelingLucky();
 };
