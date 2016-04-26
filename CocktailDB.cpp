@@ -38,10 +38,12 @@ void CocktailDB::exportDatabase()
             fout << name << "  ";
             fout << quantity << endl;
         }
+        fout << ck.rating;
         fout<<endl;
     }
     fout.close();
 }
+
 void CocktailDB::display()
 {
     for (int i =0; i<dataBase.size();i++)
@@ -62,6 +64,7 @@ void CocktailDB::processFile(const string fileName)
     string nameOfCocktail; string ingName;
     int quantity = 0;
     int numOfIng = 0;
+    float rating =0;
 
     while (fin >> nameOfCocktail)
     {
@@ -74,6 +77,8 @@ void CocktailDB::processFile(const string fileName)
         Ingredient newIngredient(ingName, quantity);
         ck.addIngCocktail(newIngredient);
     }
+        fin >> rating;
+        ck.rating = rating;
         dataBase.push_back(ck);
     }
 
@@ -98,7 +103,7 @@ CocktailDB* CocktailDB::Instance() //Singleton Code
 	}
 }
 
-Cocktail* CocktailDB::findCocktail(String name)
+Cocktail* CocktailDB::findCocktail(string name)
 {
 	std::vector<Cocktail>::iterator it;
 
@@ -116,7 +121,7 @@ Cocktail* CocktailDB::findCocktail(String name)
 void CocktailDB::imFeelingLucky()
 {
 	int random = rand() % dataBase.size();
-	database[random].printCocktailRecipe();
+	dataBase[random].printCocktailRecipe();
 	cout << endl;
 }
 
