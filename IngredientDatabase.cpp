@@ -23,7 +23,7 @@ void IngredientDatabase::populateDB(string filename)
         myfile.close();
       }
 
-      else cout << "Unable to open file";
+      else cout << "Unable to open file\n";
     myfile.close();
 }
 

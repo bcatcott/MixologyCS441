@@ -54,13 +54,31 @@ void Cocktail::scaleRecipe(int scale)
 {
 	for (int i = 0; i < recipe.size() ; i++)
 	{
-		recipe[i].setQuantity(recipe.getQuantity() * scale); //Goes through each ingredient and multiplies it
+		recipe[i].setQuantity(recipe[i].getQuantity() * scale); //Goes through each ingredient and multiplies it
 	}
 	
 }
 
-void Cocktail::addCocktail (string newCocktail, vector <Ingredient> newRecipe)
+void Cocktail::addCocktail ()
 {
-	cocktailName = newCocktail;
-	recipe = newRecipe;
+	string inputName; 
+	int ingNumber;
+	float inputRating; 
+	string inputComment;
+	
+	cin >> inputName;
+	cocktailName = inputName;
+	
+	//Insert number of ingredients in recipe. Add ingredients until number of ingredients reached
+	//cin >> ingNumber;
+	//for (int i = 0; i < ingNumber; i++)
+	//{
+		
+	//}
+	cin >> inputRating;
+	rating = inputRating;
+	
+	cin >> inputComment;
+	comment.push_back(inputComment);
+	
 }
