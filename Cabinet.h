@@ -18,8 +18,8 @@ public:
 	static Cabinet* Instance(); //Must be called to create instance
 	~Cabinet();
 	void addIng(Ingredient ing, IngredientDatabase ingDB); //must pass ingredient and database ingredient is from
-	void visitIngredients(Ingredient ing);
 	void removeIng(Ingredient ing);
 	void clearIngs();
 	void displayCab();
+	vector<Ingredient> GetCabIngList();
 };

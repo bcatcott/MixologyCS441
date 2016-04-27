@@ -12,6 +12,7 @@
 #include <vector>
 #include "Ingredient.h"
 #include "Cocktail.h"
+#include "cabinet.h"
 
 using namespace std;
 
@@ -31,5 +32,8 @@ public:
     void display();
     void exportDatabase ();
     void imFeelingLucky();
+	Cocktail* findCocktail(string name);
+	void SearchByIngredient(Cabinet cab);
+	void SortByIngNeeded();
     
 };

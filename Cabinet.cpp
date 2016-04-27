@@ -33,10 +33,6 @@ void Cabinet::addIng(Ingredient ing, IngredientDatabase ingDB)
 		cout << "Ingredient not found in database" << endl;
 }
 
-void Cabinet::visitIngredients(Ingredient ing)
-{
-}
-
 void Cabinet::removeIng(Ingredient ing)
 {
 	int removed = 0;
@@ -88,4 +84,9 @@ Cabinet* Cabinet::Instance() //Singleton Code
 		cout << "Error: can only have one instance of Cabinet" << endl;
 		exit(0);
 	}
+}
+
+vector<Ingredient> Cabinet::GetCabIngList() 
+{
+	return ingredientList;
 }

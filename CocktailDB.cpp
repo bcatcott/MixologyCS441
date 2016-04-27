@@ -11,6 +11,7 @@
 #include <iostream>
 #include "Cocktail.h"
 #include "CocktailDB.h"
+#include "cabinet.h"
 using namespace std;
 
 CocktailDB::CocktailDB()
@@ -111,7 +112,7 @@ Cocktail* CocktailDB::findCocktail(string name)
 	{
 		if((*it).cocktailName == name)
 		{
-			return it;
+			return &(*it);
 		}
 	}
 	
@@ -125,3 +126,45 @@ void CocktailDB::imFeelingLucky()
 	cout << endl;
 }
 
+void CocktailDB::SearchByIngredient(Cabinet cab) {
+
+	vector<Ingredient> cabIngList;
+	cabIngList = cab.GetCabIngList();
+
+	for (int x = 0; x < (dataBase.size() - 1); x++)
+	{
+		int total = dataBase[x].GetNumOfIngredients();
+		for (int i = 0; i < (cabIngList.size() - 1); i++)
+		{
+			total -= dataBase[x].VisitIngredient(cabIngList[i]);
+
+		}
+		dataBase[x].SetIngNeeded = total;
+	}
+	SortByIngNeeded();
+}
+
+void CocktailDB::SortByIngNeeded() 
+{
+	vector<Cocktail> sortedCocktailDB;
+
+	while (dataBase.size() != 0)
+	{
+		Cocktail newCocktail = dataBase[0];
+		int count = 0;
+
+		for (int x = 1; x < (dataBase.size() - 1); x++)
+		{
+			if (newCocktail.VisitIngNeeded(dataBase[x]))
+			{
+				newCocktail = dataBase[x];
+				count = x;
+			}
+		}
+
+		sortedCocktailDB.push_back(newCocktail);
+		dataBase.erase(dataBase.begin() + count);
+	}
+
+	dataBase = sortedCocktailDB
+}

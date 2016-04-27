@@ -12,6 +12,7 @@ public:
 	vector <Ingredient> recipe;
 	float rating;
 	vector <string> comment;
+	int ingNeeded = 0;
 
 public:
 	Cocktail();
@@ -22,4 +23,9 @@ public:
   void addIngCocktail(Ingredient ing);
   void scaleRecipe(int scale);
   void addCocktail();
+  void SetIngNeeded(int needed);
+  int VisitIngredient(Ingredient ing);
+  int GetNumOfIngredients() const;
+  bool VisitIngNeeded(Cocktail compare);
+  int GetIngNeeded() const;
 };

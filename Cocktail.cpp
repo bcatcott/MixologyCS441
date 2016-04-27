@@ -82,3 +82,36 @@ void Cocktail::addCocktail ()
 	comment.push_back(inputComment);
 	
 }
+
+void Cocktail::SetIngNeeded(int needed) 
+{
+	ingNeeded = needed;
+}
+
+int Cocktail::VisitIngredient(Ingredient ing)
+{
+	for (int i = 0; i < (recipe.size() - 1); i++)
+	{
+		if (recipe[i] == ing)
+			return 1;
+	}
+	return 0;
+}
+
+int Cocktail::GetNumOfIngredients() const
+{
+	return recipe.size();
+}
+
+//if this has a larger number of ingredients needed than cocktail compare, returns true
+bool Cocktail::VisitIngNeeded(Cocktail compare)
+{
+	if (ingNeeded > compare.GetIngNeeded())
+		return true;
+	return false;
+}
+
+int Cocktail::GetIngNeeded() const
+{
+	return ingNeeded;
+}
