@@ -32,7 +32,7 @@ public:
     void display();
     void exportDatabase ();
     void imFeelingLucky();
-	Cocktail* findCocktail(string name);
+	Cocktail findCocktail(string name);
 	void SearchByIngredient(Cabinet cab);
 	void SortByIngNeeded();
     
