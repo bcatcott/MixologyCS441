@@ -4,6 +4,7 @@
 #include "Ingredient.h"
 #include "IngredientDatabase.h"
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -19,36 +20,86 @@ int main()
 	CDB = CocktailDB::Instance(); //instance of cocktail database
 
 	IngDB->populateDB("ingredientDatabase.txt");
-	cout << "<<<INGREDIENT DATABASE>>>" << endl;
-	IngDB->displayDB();
-	cout << endl;
-
 	CDB->processFile("cocktailDatabase.txt");
-	cout << "<<<COCKTAIL DATABASE>>>" << endl;
-	CDB->display();
 
-	Ingredient i0("something");
-	Ingredient i1("RUM");
-	cout << "Adding RUM" << endl;
-	Cab->addIng(i1, *IngDB);
-	Ingredient i2("WINE");
-	cout << "Adding WINE" << endl;
-	Cab->addIng(i2, *IngDB);
-	Ingredient i3("7_UP");
-	cout << "Adding 7 UP" << endl;
-	Cab->addIng(i3, *IngDB);
-	cout << "<<<CONTENTS OF CABINET>>>" << endl;
-	Cab->displayCab();
-	cout << "Removing RUM" << endl;
-	Cab->removeIng(i1); //bug here, when you want to remove "RUM" its name was converted to "rum" so it can't be found in the cabinet and is not removed
-	cout << "Removing something not in cabinet" << endl;
-	Cab->removeIng(i0);
-	cout << "<<<CONTENTS OF CABINET>>>" << endl;
-	Cab->displayCab();
-	cout << "Clearing Cabinet" << endl;
-	Cab->clearIngs();
-	cout << "<<<CONTENTS OF CABINET>>>" << endl;
-	Cab->displayCab();
+	bool exit = false;
+	int command;
+	string input;
+
+	cout << "CS 441 Mixology Project - Unit Test 2" << endl;
+
+	while(exit != true)
+	{
+		cout << "<<Cabinet>>" << endl;
+		Cab->displayCab();
+		cout << endl;
+		cout << "1 - Add Ingredient to Cabinet" << endl;
+		cout << "2 - Remove Ingredient from Cabinet" << endl;
+		cout << "3 - View Possible Ingredients" << endl;
+		cout << "4 - Clear Cabinet" << endl;
+		cout << "5 - Display Cocktail Database" << endl;
+		cout << "6 - Find Cocktail" << endl;
+		cout << "7 - I'm Feeling Lucky" << endl;
+		cout << "0 - Exit" << endl;
+		cin >> command;
+		if(command == 1)
+		{
+			cout << "Enter Ingredient to Add" << endl;
+			cin.ignore();
+			getline(cin, input);
+			Ingredient newIng(input);
+			newIng.formatIng();
+			Cab->addIng(newIng, *IngDB);
+		}
+		else if(command == 2)
+		{
+			cout << "Enter Ingredient to Remove" << endl;
+			cin.ignore();
+			getline(cin, input);
+			Ingredient ingToDelete(input);
+			ingToDelete.formatIng();
+			Cab->removeIng(ingToDelete);
+		}
+		else if(command == 3)
+		{
+			cout << "<<Possible Ingredients>>" << endl;
+			IngDB->displayDB();
+			cout << endl;
+		}
+		else if(command == 4)
+		{
+			Cab->clearIngs();
+			cout << "Cabinet Cleared" << endl;
+		}
+		else if(command == 5)
+		{
+			CDB->display();
+		}
+		else if(command == 6)
+		{
+			cout << "Enter Cocktail to Find" << endl;
+			cin.ignore();
+			getline(cin, input);
+			Cocktail newCocktail = CDB->findCocktail(input);
+			if(newCocktail.getCocktailName() == "nothing")
+				cout << "Could not find cocktail" << endl;
+			else
+				newCocktail.printCocktailRecipe();
+		}
+		else if(command == 7)
+			CDB->imFeelingLucky();
+		else if(command == 0)
+			break;
+		else if(cin.fail())
+		{
+			cout << "Not a valid input" << endl;
+			cin.clear();
+			cin.ignore(256, '\n');
+		}
+		else
+			cout << "Not a valid input" << endl;
+	}
+	cout << "Program Terminated" << endl;
 
 	return 0;
 }
