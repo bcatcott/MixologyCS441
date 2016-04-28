@@ -18,6 +18,7 @@ public:
 	Cocktail();
 	Cocktail(string inputName);
 	~Cocktail();
+	string getCocktailName() const;
   void printCocktailName();
   void printCocktailRecipe();
   void addIngCocktail(Ingredient ing);
