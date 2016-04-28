@@ -104,7 +104,7 @@ CocktailDB* CocktailDB::Instance() //Singleton Code
 	}
 }
 
-Cocktail* CocktailDB::findCocktail(string name)
+Cocktail CocktailDB::findCocktail(string name)
 {
 	std::vector<Cocktail>::iterator it;
 
@@ -112,11 +112,11 @@ Cocktail* CocktailDB::findCocktail(string name)
 	{
 		if((*it).cocktailName == name)
 		{
-			return &(*it);
+			return *it;
 		}
 	}
-	
-	return NULL;
+	Cocktail temp("nothing");
+	return temp;
 }
 
 void CocktailDB::imFeelingLucky()
