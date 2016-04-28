@@ -22,13 +22,12 @@ int main()
 	IngDB->populateDB("ingredientDatabase.txt");
 	CDB->processFile("cocktailDatabase.txt");
 
-	bool exit = false;
 	int command;
 	string input;
 
 	cout << "CS 441 Mixology Project - Unit Test 2" << endl;
 
-	while(exit != true)
+	while(1)
 	{
 		cout << "<<Cabinet>>" << endl;
 		Cab->displayCab();
