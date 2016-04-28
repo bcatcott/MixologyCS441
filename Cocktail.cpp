@@ -18,6 +18,11 @@ Cocktail::Cocktail()
 Cocktail::~Cocktail()
 {
 }
+
+string Cocktail::getCocktailName() const
+{
+	return cocktailName;
+}
   
 void Cocktail::printCocktailName()
 {
