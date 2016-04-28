@@ -47,7 +47,7 @@ int main()
 			cin.ignore();
 			getline(cin, input);
 			Ingredient newIng(input);
-			newIng.formatIng();
+			newIng.FormatIng();
 			Cab->addIng(newIng, *IngDB);
 		}
 		else if(command == 2)
@@ -56,7 +56,7 @@ int main()
 			cin.ignore();
 			getline(cin, input);
 			Ingredient ingToDelete(input);
-			ingToDelete.formatIng();
+			ingToDelete.FormatIng();
 			Cab->removeIng(ingToDelete);
 		}
 		else if(command == 3)

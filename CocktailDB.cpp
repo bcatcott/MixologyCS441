@@ -139,7 +139,7 @@ void CocktailDB::SearchByIngredient(Cabinet cab) {
 			total -= dataBase[x].VisitIngredient(cabIngList[i]);
 
 		}
-		dataBase[x].SetIngNeeded = total;
+		dataBase[x].SetIngNeeded(total);
 	}
 	SortByIngNeeded();
 }
@@ -166,5 +166,5 @@ void CocktailDB::SortByIngNeeded()
 		dataBase.erase(dataBase.begin() + count);
 	}
 
-	dataBase = sortedCocktailDB
+	dataBase = sortedCocktailDB;
 }
