@@ -10,11 +10,18 @@ Cocktail::Cocktail()
     string cocktailName ="";
 }
 
- Cocktail::Cocktail(string inputCocktail)
+Cocktail::Cocktail(string inputCocktail)
 {
 	cocktailName = inputCocktail;
 }
   
+Cocktail::Cocktail(string inName, vector <Ingredient> inRecipe, float inRating)
+{
+	cocktailName = inName;
+	recipe = inRecipe;
+	rating = inRating;
+}
+
 Cocktail::~Cocktail()
 {
 }
@@ -127,4 +134,9 @@ int Cocktail::GetIngNeeded() const
 vector <Ingredient> Cocktail::GetRecipe()
 {
 	return recipe;
+}
+
+float Cocktail::GetRating() const
+{
+	return rating;
 }

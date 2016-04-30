@@ -27,19 +27,21 @@ void CocktailDB::ExportDatabase()
 {
     ofstream fout;
     fout.open ("cocktailDatabase.txt");
+
     for (int i =0; i<dataBase.size();i++)
     {
         Cocktail ck;
         ck = dataBase[i];
-        fout<<ck.cocktailName<<endl;
-        for (int j =0;j<ck.recipe.size();j++)
+        fout<<ck.GetCocktailName<<endl;
+        for (int j =0;j<ck.GetRecipe.size();j++)
         {
-            string name = ck.recipe[j].GetName();
-            int quantity = ck.recipe[j].GetQuantity();
+            string name = ck.GetRecipe[j].GetName();
+            int quantity = ck.GetRecipe[j].GetQuantity();
             fout << name << "  ";
             fout << quantity << endl;
         }
-        fout << ck.rating;
+
+        fout << ck.GetRating;
         fout<<endl;
     }
     fout.close();
@@ -66,21 +68,24 @@ void CocktailDB::ProcessFile(const string fileName)
     int quantity = 0;
     int numOfIng = 0;
     float rating =0;
+	vector <Ingredient> recipe;
+
 
     while (fin >> nameOfCocktail)
     {
-    Cocktail ck(nameOfCocktail);
     fin >> numOfIng;
-    for (int i =0;i<numOfIng;i++)
-    {
-        fin >> ingName;
-        fin >> quantity;
-        Ingredient newIngredient(ingName, quantity);
-        ck.AddIngCocktail(newIngredient);
-    }
-        fin >> rating;
-        ck.rating = rating;
-        dataBase.push_back(ck);
+
+		for (int i =0;i<numOfIng;i++)
+		{
+			fin >> ingName;
+		    fin >> quantity;
+			Ingredient newIngredient(ingName, quantity);
+			
+			recipe.push_back(newIngredient);
+		}
+    fin >> rating;
+	Cocktail ck(nameOfCocktail, recipe, rating);
+    dataBase.push_back(ck);
     }
 
     fin.close();
@@ -110,7 +115,7 @@ Cocktail CocktailDB::FindCocktail(string name)
 
 	for(it = dataBase.begin(); it != dataBase.end(); ++it)
 	{
-		if((*it).cocktailName == name)
+		if((*it).GetCocktailName == name)
 		{
 			return *it;
 		}
