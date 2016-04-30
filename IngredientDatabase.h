@@ -16,7 +16,7 @@ protected:
 public:
 	static IngredientDatabase* Instance(); //Must be called to create instance
     ~IngredientDatabase();
-	void populateDB(string filename);
-	bool compareDB(Ingredient ing); //returns true if ing is in vector
-	void displayDB();
+	void PopulateDB(string filename);
+	bool CompareDB(Ingredient ing); //returns true if ing is in vector
+	void DisplayDB();
 };

@@ -28,11 +28,11 @@ protected:
 public:
 	static CocktailDB* Instance(); //Must be called to create instance
 	~CocktailDB();
-    void processFile (const string fileName);
-    void display();
-    void exportDatabase ();
-    void imFeelingLucky();
-	Cocktail findCocktail(string name);
+    void ProcessFile (const string fileName);
+    void Display();
+    void ExportDatabase ();
+    void ImFeelingLucky();
+	Cocktail FindCocktail(string name);
 	void SearchByIngredient(Cabinet cab);
 	void SortByIngNeeded();
     

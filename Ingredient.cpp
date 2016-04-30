@@ -28,32 +28,32 @@ bool Ingredient::operator==(const Ingredient &obj)
 		return false;
 }
 
-string Ingredient::getName() const
+string Ingredient::GetName() const
 {
 	return name;
 }
 
-void Ingredient::setName(string inputName)
+void Ingredient::SetName(string inputName)
 {
 	name = inputName;
 }
 
-int Ingredient::getQuantity()const
+int Ingredient::GetQuantity()const
 {
 	return quantity;
 }
 
-void Ingredient::setQuantity(int inputQuantity)
+void Ingredient::SetQuantity(int inputQuantity)
 {
 	quantity = inputQuantity;
 }
 
-void Ingredient::updateQuantity(int amt)
+void Ingredient::UpdateQuantity(int amt)
 {
 	quantity += amt;
 }
 
-void Ingredient::displayIngredient() 
+void Ingredient::DisplayIngredient() 
 {
 	string tempName = name;
 	for (int i = 0; i < (tempName.size()); i++)
@@ -64,7 +64,7 @@ void Ingredient::displayIngredient()
 	cout << tempName;
 }
 
-void Ingredient::displayQuantity()
+void Ingredient::DisplayQuantity()
 {
 	cout << quantity;
 }

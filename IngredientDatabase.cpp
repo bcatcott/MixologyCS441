@@ -8,7 +8,7 @@ IngredientDatabase::IngredientDatabase()
 {
 }
 
-void IngredientDatabase::populateDB(string filename)
+void IngredientDatabase::PopulateDB(string filename)
 {
     string line;
     ifstream myfile;
@@ -27,7 +27,7 @@ void IngredientDatabase::populateDB(string filename)
     myfile.close();
 }
 
-bool IngredientDatabase::compareDB(Ingredient ing)
+bool IngredientDatabase::CompareDB(Ingredient ing)
 {
 	for(size_t i = 0; i < ingredientDBList.size() - 1; i++)
 	{
@@ -37,11 +37,11 @@ bool IngredientDatabase::compareDB(Ingredient ing)
 	return false;
 }
 
-void IngredientDatabase::displayDB()
+void IngredientDatabase::DisplayDB()
 {
 	for (size_t i = 0; i < ingredientDBList.size(); i++)
 	{
-		ingredientDBList[i].displayIngredient();
+		ingredientDBList[i].DisplayIngredient();
 		cout << endl;
 	}
 }

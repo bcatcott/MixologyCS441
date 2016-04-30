@@ -23,7 +23,7 @@ CocktailDB::~CocktailDB()
 	_instance = 0; //Resets singleton code
 }
 
-void CocktailDB::exportDatabase()
+void CocktailDB::ExportDatabase()
 {
     ofstream fout;
     fout.open ("cocktailDatabase.txt");
@@ -34,8 +34,8 @@ void CocktailDB::exportDatabase()
         fout<<ck.cocktailName<<endl;
         for (int j =0;j<ck.recipe.size();j++)
         {
-            string name = ck.recipe[j].getName();
-            int quantity = ck.recipe[j].getQuantity();
+            string name = ck.recipe[j].GetName();
+            int quantity = ck.recipe[j].GetQuantity();
             fout << name << "  ";
             fout << quantity << endl;
         }
@@ -45,19 +45,19 @@ void CocktailDB::exportDatabase()
     fout.close();
 }
 
-void CocktailDB::display()
+void CocktailDB::Display()
 {
     for (int i =0; i<dataBase.size();i++)
     {
         cout<<"CockTail "<<i+1<<endl;
-        dataBase[i].printCocktailRecipe();
+        dataBase[i].PrintCocktailRecipe();
         cout<< endl;
     }
 }
 
 
 
-void CocktailDB::processFile(const string fileName)
+void CocktailDB::ProcessFile(const string fileName)
 {
     
     ifstream fin;
@@ -76,7 +76,7 @@ void CocktailDB::processFile(const string fileName)
         fin >> ingName;
         fin >> quantity;
         Ingredient newIngredient(ingName, quantity);
-        ck.addIngCocktail(newIngredient);
+        ck.AddIngCocktail(newIngredient);
     }
         fin >> rating;
         ck.rating = rating;
@@ -104,7 +104,7 @@ CocktailDB* CocktailDB::Instance() //Singleton Code
 	}
 }
 
-Cocktail CocktailDB::findCocktail(string name)
+Cocktail CocktailDB::FindCocktail(string name)
 {
 	std::vector<Cocktail>::iterator it;
 
@@ -119,10 +119,10 @@ Cocktail CocktailDB::findCocktail(string name)
 	return temp;
 }
 
-void CocktailDB::imFeelingLucky()
+void CocktailDB::ImFeelingLucky()
 {
 	int random = rand() % dataBase.size();
-	dataBase[random].printCocktailRecipe();
+	dataBase[random].PrintCocktailRecipe();
 	cout << endl;
 }
 

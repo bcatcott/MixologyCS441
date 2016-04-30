@@ -16,13 +16,13 @@ public:
 	Ingredient(const string &inputName, int inputQuantity);
 	~Ingredient();
 	bool operator==(const Ingredient &obj);
-	string getName() const;
-	void setName(string inputName);
-	void setQuantity(int inputQuantity);
-	int getQuantity() const;
-	void updateQuantity(int amt);
-	void displayIngredient();
-	void displayQuantity();
+	string GetName() const;
+	void SetName(string inputName);
+	void SetQuantity(int inputQuantity);
+	int GetQuantity() const;
+	void UpdateQuantity(int amt);
+	void DisplayIngredient();
+	void DisplayQuantity();
 	void FormatIng();
 };
 

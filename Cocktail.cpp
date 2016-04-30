@@ -19,34 +19,34 @@ Cocktail::~Cocktail()
 {
 }
 
-string Cocktail::getCocktailName() const
+string Cocktail::GetCocktailName() const
 {
 	return cocktailName;
 }
   
-void Cocktail::printCocktailName()
+void Cocktail::PrintCocktailName()
 {
 	cout << cocktailName << endl;
 }
   
-void Cocktail::printCocktailRecipe()
+void Cocktail::PrintCocktailRecipe()
 {
 	cout << cocktailName << ":" << endl;
 	for (int i = 0; i < recipe.size(); i++ )
   	{
-		cout << recipe[i].getName() << " " << recipe[i].getQuantity() << endl;
+		cout << recipe[i].GetName() << " " << recipe[i].GetQuantity() << endl;
   	}
 }
   
   
-void Cocktail::addIngCocktail(Ingredient ing)
+void Cocktail::AddIngCocktail(Ingredient ing)
 {
 	bool updateFlag = false; //whether or not to update qty or add new ing
 	for(int i = 0; i < recipe.size(); i++)
 	{
-		if(recipe[i].getName() == ing.getName()) //if the vector already has ing, just update qty
+		if(recipe[i].GetName() == ing.GetName()) //if the vector already has ing, just update qty
 		{
-			recipe[i].updateQuantity(ing.getQuantity());
+			recipe[i].UpdateQuantity(ing.GetQuantity());
 			updateFlag = true;
 			break;
 		}
@@ -55,16 +55,16 @@ void Cocktail::addIngCocktail(Ingredient ing)
 		recipe.push_back(ing);
 }
 
-void Cocktail::scaleRecipe(int scale)
+void Cocktail::ScaleRecipe(int scale)
 {
 	for (int i = 0; i < recipe.size() ; i++)
 	{
-		recipe[i].setQuantity(recipe[i].getQuantity() * scale); //Goes through each ingredient and multiplies it
+		recipe[i].SetQuantity(recipe[i].GetQuantity() * scale); //Goes through each ingredient and multiplies it
 	}
 	
 }
 
-void Cocktail::addCocktail ()
+void Cocktail::AddCocktail ()
 {
 	string inputName; 
 	int ingNumber;
