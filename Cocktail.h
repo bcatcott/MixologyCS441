@@ -7,7 +7,7 @@ using namespace std;
 
 class Cocktail
 {
-public:
+private:
 	string cocktailName;
 	vector <Ingredient> recipe;
 	float rating;
@@ -22,11 +22,13 @@ public:
 	void PrintCocktailName();
 	void PrintCocktailRecipe();
 	void AddIngCocktail(Ingredient ing);
-	void ScaleRecipe(int scale);
+	Cocktail ScaleRecipe(int scale);
 	void AddCocktail();
 	void SetIngNeeded(int needed);
 	int VisitIngredient(Ingredient ing);
-	int GetNumOfIngredients() const;
 	bool VisitIngNeeded(Cocktail compare);
+	int GetNumOfIngredients() const;
 	int GetIngNeeded() const;
+	vector<Ingredient> GetRecipe();
+
 };

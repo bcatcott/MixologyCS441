@@ -55,11 +55,13 @@ void Cocktail::AddIngCocktail(Ingredient ing)
 		recipe.push_back(ing);
 }
 
-void Cocktail::ScaleRecipe(int scale)
+Cocktail Cocktail::ScaleRecipe(int scale)
 {
+	Cocktail temp = *this;
+
 	for (int i = 0; i < recipe.size() ; i++)
 	{
-		recipe[i].SetQuantity(recipe[i].GetQuantity() * scale); //Goes through each ingredient and multiplies it
+		temp.recipe[i].SetQuantity(temp.recipe[i].GetQuantity() * scale); //Goes through each ingredient and multiplies it
 	}
 	
 }
@@ -119,4 +121,10 @@ bool Cocktail::VisitIngNeeded(Cocktail compare)
 int Cocktail::GetIngNeeded() const
 {
 	return ingNeeded;
+}
+
+
+vector <Ingredient> Cocktail::GetRecipe()
+{
+	return recipe;
 }
