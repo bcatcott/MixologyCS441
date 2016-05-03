@@ -109,19 +109,32 @@ CocktailDB* CocktailDB::Instance() //Singleton Code
 	}
 }
 
-Cocktail CocktailDB::FindCocktail(string name)
+std::vector<Cocktail> CocktailDB::FindCocktail(string input)
 {
+	std::vector<Cocktail> results;
 	std::vector<Cocktail>::iterator it;
+	string cocktail;
 
 	for(it = dataBase.begin(); it != dataBase.end(); ++it)
 	{
-		if((*it).GetCocktailName == name)
+		for(int i = 0; i < input.length(); i++)
 		{
-			return *it;
+		    cocktail = (*it).GetCocktailName();
+			if(input[i] != cocktail[i])
+			{
+				break;
+			}
 		}
+		results.push_back(cocktail);
 	}
-	Cocktail temp("nothing");
-	return temp;
+	
+	if( results.size() == 0 )
+	{
+		Cocktail temp("nothing");
+		results.push_back(temp);
+	}
+	
+	return results;
 }
 
 void CocktailDB::ImFeelingLucky()

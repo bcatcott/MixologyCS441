@@ -1,0 +1,2 @@
+CocktailDB: Cabinet.cpp Cocktail.cpp CocktailDB.cpp Ingredient.cpp IngredientDatabase.cpp
+	g++ -o cocktail.exe unitTest2.cpp Cabinet.cpp Cocktail.cpp CocktailDB.cpp Ingredient.cpp IngredientDatabase.cpp

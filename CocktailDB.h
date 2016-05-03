@@ -32,7 +32,7 @@ public:
     void Display();
     void ExportDatabase ();
     void ImFeelingLucky();
-	Cocktail FindCocktail(string name);
+	std::vector<Cocktail> FindCocktail(string input);
 	void SearchByIngredient(Cabinet cab);
 	void SortByIngNeeded();
     
