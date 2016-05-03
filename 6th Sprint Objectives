@@ -1,0 +1,30 @@
+The following inputs/outputs will all be variables in main.
+
+Ryan - Ingredient Search GUI
+    Input - String ingSearch
+    Use search function in ingredientDB to obtain a vector of ingredients
+    Display the vector of ingredients in the window
+    Output - String ingToCabinet
+
+Jacob - Cabinet GUI
+    Input - String ingToCabinet
+    Add ingredient to the cabinet
+    Display ingredients as strings
+    Output - None
+
+Curtis - Cocktail Search GUI
+    Input - Cabinet class
+    Perform a search using the Cabinet class as a parameter
+    Display cocktails as strings
+    Output - Strings
+
+Rajack - Cocktail Display GUI + I'm Lucky + Scale
+    Input - String (On click of a Cocktail)
+    Perform a search on the cocktailDB using the search function
+    Output - Display the cocktail information
+
+Sean - UML + Help Rajack
+
+Brad - Presentation
+
+Cam - Help with Presentation + Debug + Help Others
