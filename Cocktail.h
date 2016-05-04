@@ -12,7 +12,7 @@ private:
 	vector <Ingredient> recipe;
 	float rating;
 	vector <string> comment;
-	int ingNeeded = 0;
+	int ingNeeded;
 
 public:
 	Cocktail();
