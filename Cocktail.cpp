@@ -73,7 +73,7 @@ Cocktail Cocktail::ScaleRecipe(int scale)
 	{
 		temp.recipe[i].SetQuantity(temp.recipe[i].GetQuantity() * scale); //Goes through each ingredient and multiplies it
 	}
-	
+	return temp;
 }
 
 void Cocktail::AddCocktail ()
