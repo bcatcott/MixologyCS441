@@ -8,11 +8,13 @@ using namespace std;
 Cocktail::Cocktail()
 {
     string cocktailName ="";
+    ingNeeded = 0;
 }
 
 Cocktail::Cocktail(string inputCocktail)
 {
 	cocktailName = inputCocktail;
+	ingNeeded = 0;
 }
   
 Cocktail::Cocktail(string inName, vector <Ingredient> inRecipe, float inRating)
@@ -20,6 +22,7 @@ Cocktail::Cocktail(string inName, vector <Ingredient> inRecipe, float inRating)
 	cocktailName = inName;
 	recipe = inRecipe;
 	rating = inRating;
+	ingNeeded = 0;
 }
 
 Cocktail::~Cocktail()
