@@ -32,16 +32,16 @@ void CocktailDB::ExportDatabase()
     {
         Cocktail ck;
         ck = dataBase[i];
-        fout<<ck.GetCocktailName<<endl;
-        for (int j =0;j<ck.GetRecipe.size();j++)
+        fout<<ck.GetCocktailName()<<endl;
+        for (int j =0;j<ck.GetRecipe().size();j++)
         {
-            string name = ck.GetRecipe[j].GetName();
-            int quantity = ck.GetRecipe[j].GetQuantity();
+            string name = ck.GetRecipe()[j].GetName();
+            int quantity = ck.GetRecipe()[j].GetQuantity();
             fout << name << "  ";
             fout << quantity << endl;
         }
 
-        fout << ck.GetRating;
+        fout << ck.GetRating();
         fout<<endl;
     }
     fout.close();
