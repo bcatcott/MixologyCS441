@@ -144,45 +144,48 @@ void CocktailDB::ImFeelingLucky()
 	cout << endl;
 }
 
-void CocktailDB::SearchByIngredient(Cabinet cab) {
+vector<Cocktail> CocktailDB::SearchByIngredient(Cabinet cab) {
 
 	vector<Ingredient> cabIngList;
 	cabIngList = cab.GetCabIngList();
+	vector<Cocktail> tempCTDB = dataBase;
 
-	for (int x = 0; x < (dataBase.size() - 1); x++)
+	for (int x = 0; x < (tempCTDB.size() - 1); x++)
 	{
-		int total = dataBase[x].GetNumOfIngredients();
+		int total = tempCTDB[x].GetNumOfIngredients();
 		for (int i = 0; i < (cabIngList.size() - 1); i++)
 		{
-			total -= dataBase[x].VisitIngredient(cabIngList[i]);
+			total -= tempCTDB[x].VisitIngredient(cabIngList[i]);
 
 		}
-		dataBase[x].SetIngNeeded(total);
+		tempCTDB[x].SetIngNeeded(total);
 	}
 	SortByIngNeeded();
+
+	return SortByIngNeeded(tempCTDB);
 }
 
-void CocktailDB::SortByIngNeeded() 
+vector<Cocktail> CocktailDB::SortByIngNeeded(vector <Cocktail> tempCTDB)
 {
 	vector<Cocktail> sortedCocktailDB;
 
-	while (dataBase.size() != 0)
+	while (tempCTDB.size() != 0)
 	{
-		Cocktail newCocktail = dataBase[0];
+		Cocktail newCocktail = tempCTDB[0];
 		int count = 0;
 
-		for (int x = 1; x < (dataBase.size() - 1); x++)
+		for (int x = 1; x < (tempCTDB.size() - 1); x++)
 		{
-			if (newCocktail.VisitIngNeeded(dataBase[x]))
+			if (newCocktail.VisitIngNeeded(tempCTDB[x]))
 			{
-				newCocktail = dataBase[x];
+				newCocktail = tempCTDB[x];
 				count = x;
 			}
 		}
 
 		sortedCocktailDB.push_back(newCocktail);
-		dataBase.erase(dataBase.begin() + count);
+		tempCTDB.erase(tempCTDB.begin() + count);
 	}
 
-	dataBase = sortedCocktailDB;
+	return sortedCocktailDB;
 }
