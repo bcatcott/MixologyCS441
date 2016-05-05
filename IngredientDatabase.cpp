@@ -68,3 +68,41 @@ IngredientDatabase* IngredientDatabase::Instance() //Singleton code
 		exit(0);
 	}
 }
+
+vector<Ingredient> IngredientDatabase::SearchDB(string searchIngName)
+{
+	vector<Ingredient> searchedList;
+
+	if (searchIngName.length() != 0)
+	{
+		for (int i = 0; i < searchIngName.length(); i++)
+		{
+			if (searchIngName[i] == ' ')
+				searchIngName[i] = '_';
+			else
+				searchIngName[i] = tolower(searchIngName[i]);
+		}
+
+		for (int i = 0; i < ingredientDBList.size(); i++)
+		{
+			bool possibleIng = true;
+			if (searchIngName.length() <= ingredientDBList[i].GetName().length())
+			{
+				int x = 0;
+				while (x < searchIngName.length())
+				{
+					if (searchIngName[x] == ingredientDBList[i].GetName()[x])
+						x++;
+					else
+						x = 1 + searchIngName.length();
+				}
+				if (x == searchIngName.length())
+				{
+					Ingredient searchIngObj(searchIngName);
+					searchedList.push_back(searchIngObj);
+				}
+
+			}
+		}
+	}
+}
