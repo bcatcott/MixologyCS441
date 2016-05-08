@@ -21,35 +21,19 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_cabinetSearch_textChanged(const QString &arg1)
 {
-    ui->possibleIngredients->clear();
-
-    int count = 0;
-    vector<Ingredient> ingredients = IngDB->SearchDB(arg1.toStdString());
-    vector<Ingredient>::iterator it;
-qInfo("%d",ingredients.size());
-//    for(it = ingredients.begin(); it != ingredients.end(); it++)
-//    {
-//        count++;
-//        qInfo( "C Style Info Message" );
-        //ui->possibleIngredients->addItem(QString::fromStdString((*it).GetName()));
-  //  }
-    /*
-    if(arg1.toLower().startsWith("c"))
-    {
-        ui->possibleIngredients->addItem("Coke");
-        ui->possibleIngredients->addItem("Cat");
-        return;
-    }
-    if(arg1.toLower().startsWith("r"))
-    {
-        ui->possibleIngredients->addItem("Rum");
-        return;
-    }
-    */
-    if (count == 0)
-    {
-        ui->possibleIngredients->addItem("Nothing!!!");
-    }
+	ui->possibleIngredients->clear();
+	if (arg1.toLower().startsWith("c"))
+	{
+		ui->possibleIngredients->addItem("Coke");
+		ui->possibleIngredients->addItem("Cat");
+		return;
+	}
+	if (arg1.toLower().startsWith("r"))
+	{
+		ui->possibleIngredients->addItem("Rum");
+		return;
+	}
+	ui->possibleIngredients->addItem("Nothing!!!");
 }
 
 void MainWindow::on_possibleIngredients_currentTextChanged(const QString &currentText)
@@ -76,6 +60,30 @@ void MainWindow::on_myCabinet_currentTextChanged(const QString &currentText)
         return;
     }
     ui->cocktailResults->setText("????");
+
+
+	//    vector<Ingredient> ingredients = IngDB->SearchDB(arg1.toStdString());
+	//    vector<Ingredient>::iterator it;
+	//qInfo("%d",ingredients.size());
+	//    for(it = ingredients.begin(); it != ingredients.end(); it++)
+	//    {
+	//        count++;
+	//        qInfo( "C Style Info Message" );
+	//ui->possibleIngredients->addItem(QString::fromStdString((*it).GetName()));
+	//  }
+	/*
+	if(arg1.toLower().startsWith("c"))
+	{
+	ui->possibleIngredients->addItem("Coke");
+	ui->possibleIngredients->addItem("Cat");
+	return;
+	}
+	if(arg1.toLower().startsWith("r"))
+	{
+	ui->possibleIngredients->addItem("Rum");
+	return;
+	}
+	*/
 }
 
 void MainWindow::on_clearSelectedIngredients_clicked()
