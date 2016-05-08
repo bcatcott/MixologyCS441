@@ -19,6 +19,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+//Ryan
 void MainWindow::on_cabinetSearch_textChanged(const QString &arg1)
 {
 	ui->possibleIngredients->clear();
@@ -36,6 +37,7 @@ void MainWindow::on_cabinetSearch_textChanged(const QString &arg1)
 	ui->possibleIngredients->addItem("Nothing!!!");
 }
 
+//Jacob - Most finished
 void MainWindow::on_possibleIngredients_currentTextChanged(const QString &currentText)
 {
     if(currentText == "")
@@ -47,11 +49,13 @@ void MainWindow::on_possibleIngredients_currentTextChanged(const QString &curren
     ui->clearSelectedIngredients->setEnabled(true);
 }
 
+//Complete - Do Not Change
 void MainWindow::on_clearCabinet_clicked()
 {
     ui->myCabinet->clear();
 }
 
+// Curtis
 void MainWindow::on_myCabinet_currentTextChanged(const QString &currentText)
 {
     if(currentText.toLower() == "coke")
@@ -61,7 +65,8 @@ void MainWindow::on_myCabinet_currentTextChanged(const QString &currentText)
     }
     ui->cocktailResults->setText("????");
 
-
+	//ui->possibleIngredients->clear();
+	//int count = 0;
 	//    vector<Ingredient> ingredients = IngDB->SearchDB(arg1.toStdString());
 	//    vector<Ingredient>::iterator it;
 	//qInfo("%d",ingredients.size());
@@ -101,3 +106,5 @@ void MainWindow::on_possibleIngredients_itemClicked(QListWidgetItem *item)
         return;
     on_possibleIngredients_currentTextChanged(item->text());
 }
+
+//Rajack - you don't have a function created yet
