@@ -39,6 +39,10 @@ bool IngredientDatabase::CompareDB(Ingredient ing)
 
 void IngredientDatabase::DisplayDB()
 {
+    if (ingredientDBList.size() == 0)
+    {
+        cout << "Empty Ingredients Database\n";
+    }
 	for (size_t i = 0; i < ingredientDBList.size(); i++)
 	{
 		ingredientDBList[i].DisplayIngredient();
@@ -67,6 +71,11 @@ IngredientDatabase* IngredientDatabase::Instance() //Singleton code
 		cout << "Error: can only have one instance of IngredientDatabase" << endl;
 		exit(0);
 	}
+}
+
+int IngredientDatabase::GetSize()
+{
+    return ingredientDBList.size();
 }
 
 vector<Ingredient> IngredientDatabase::SearchDB(string searchIngName)

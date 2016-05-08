@@ -12,7 +12,7 @@
 #include <vector>
 #include "Ingredient.h"
 #include "Cocktail.h"
-#include "cabinet.h"
+#include "Cabinet.h"
 
 using namespace std;
 
@@ -32,7 +32,7 @@ public:
     void Display();
     void ExportDatabase ();
     void ImFeelingLucky();
-	std::vector<Cocktail> FindCocktail(string input);
+    std::vector<Cocktail> FindCocktail(string input);
 	vector<Cocktail> SearchByIngredient(Cabinet cab);
 	vector<Cocktail> SortByIngNeeded(vector <Cocktail> CTDB);
     

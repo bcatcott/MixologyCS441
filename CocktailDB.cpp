@@ -109,10 +109,10 @@ CocktailDB* CocktailDB::Instance() //Singleton Code
 	}
 }
 
-std::vector<Cocktail> CocktailDB::FindCocktail(string input)
+vector<Cocktail> CocktailDB::FindCocktail(string input)
 {
-	std::vector<Cocktail> results;
-	std::vector<Cocktail>::iterator it;
+    vector<Cocktail> results;
+    vector<Cocktail>::iterator it;
 	string cocktail;
 
 	for(it = dataBase.begin(); it != dataBase.end(); ++it)
@@ -120,12 +120,12 @@ std::vector<Cocktail> CocktailDB::FindCocktail(string input)
 		for(int i = 0; i < input.length(); i++)
 		{
 		    cocktail = (*it).GetCocktailName();
-			if(input[i] != cocktail[i])
-			{
-				break;
-			}
+            if(input[i] != cocktail[i])
+            {
+                break;
+            }
 		}
-		results.push_back(cocktail);
+        results.push_back(*it);
 	}
 	
 	if( results.size() == 0 )
@@ -159,8 +159,7 @@ vector<Cocktail> CocktailDB::SearchByIngredient(Cabinet cab) {
 
 		}
 		tempCTDB[x].SetIngNeeded(total);
-	}
-	SortByIngNeeded();
+    }
 
 	return SortByIngNeeded(tempCTDB);
 }
