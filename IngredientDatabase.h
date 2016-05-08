@@ -19,5 +19,6 @@ public:
 	void PopulateDB(string filename);
 	bool CompareDB(Ingredient ing); //returns true if ing is in vector
 	void DisplayDB();
+    int GetSize();
 	vector<Ingredient> SearchDB(string searchIng);
 };
