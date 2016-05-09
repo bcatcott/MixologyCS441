@@ -8,9 +8,12 @@ int main(int argc, char *argv[])
     MainWindow w;
     w.show();
 
-    Cabinet *Cab = Cabinet::Instance(); //instance of cabinet
-    IngredientDatabase *IngDB = IngredientDatabase::Instance(); //instance of ingredient database
-    CocktailDB *CDB = CocktailDB::Instance(); //instance of cocktail database
+    Cabinet *Cab;
+    Cab = Cabinet::Instance(); //instance of cabinet
+    IngredientDatabase *IngDB;
+    IngDB = IngredientDatabase::Instance(); //instance of ingredient database
+    CocktailDB *CDB;
+    CDB = CocktailDB::Instance(); //instance of cocktail database
 
     IngDB->PopulateDB("ingredientDatabase.txt");
 
