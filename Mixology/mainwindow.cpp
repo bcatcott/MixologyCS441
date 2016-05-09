@@ -45,6 +45,8 @@ void MainWindow::on_possibleIngredients_currentTextChanged(const QString &curren
         ui->clearSelectedIngredients->setEnabled(false);
         return;
     }
+    Ingredient ingToCabinet(currentText.toStdString());
+    Cab->AddIng(ingToCabinet, *IngDB);
     ui->myCabinet->addItem(currentText);
     ui->clearSelectedIngredients->setEnabled(true);
 }
@@ -52,7 +54,8 @@ void MainWindow::on_possibleIngredients_currentTextChanged(const QString &curren
 //Complete - Do Not Change
 void MainWindow::on_clearCabinet_clicked()
 {
-    ui->myCabinet->clear();
+	Cab->ClearIngs();
+	ui->myCabinet->clear();
 }
 
 // Curtis
@@ -97,6 +100,8 @@ void MainWindow::on_clearSelectedIngredients_clicked()
     int row = ui->myCabinet->currentRow();
     if(row == -1)
         return;
+    Ingredient ingToRemove(ui->myCabinet->item(row)->text().toStdString());
+    Cab->RemoveIng(ingToRemove);
     ui->myCabinet->takeItem(row);
 }
 
