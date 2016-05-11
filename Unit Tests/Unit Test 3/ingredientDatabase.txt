@@ -1,0 +1,17 @@
+rum
+vodka
+tequila
+whiskey
+coke
+7_up
+orange_juice
+coffee
+lime
+lemon
+dr._pepper
+jack_daniels
+grenadine
+gin
+jack
+lime_juice
+simple_sugar
