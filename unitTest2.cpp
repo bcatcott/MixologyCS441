@@ -19,8 +19,8 @@ int main()
 	CocktailDB *CDB;
 	CDB = CocktailDB::Instance(); //instance of cocktail database
 
-	IngDB->populateDB("ingredientDatabase.txt");
-	CDB->processFile("cocktailDatabase.txt");
+	IngDB->PopulateDB("ingredientDatabase.txt");
+	CDB->ProcessFile("cocktailDatabase.txt");
 
 	int command;
 	string input;
@@ -30,7 +30,7 @@ int main()
 	while(1)
 	{
 		cout << "<<Cabinet>>" << endl;
-		Cab->displayCab();
+		Cab->DisplayCab();
 		cout << endl;
 		cout << "1 - Add Ingredient to Cabinet" << endl;
 		cout << "2 - Remove Ingredient from Cabinet" << endl;
@@ -48,7 +48,7 @@ int main()
 			getline(cin, input);
 			Ingredient newIng(input);
 			newIng.FormatIng();
-			Cab->addIng(newIng, *IngDB);
+			Cab->AddIng(newIng, *IngDB);
 		}
 		else if(command == 2)
 		{
@@ -57,7 +57,7 @@ int main()
 			getline(cin, input);
 			Ingredient ingToDelete(input);
 			ingToDelete.FormatIng();
-			Cab->removeIng(ingToDelete);
+			Cab->RemoveIng(ingToDelete);
 		}
 		else if(command == 3)
 		{
